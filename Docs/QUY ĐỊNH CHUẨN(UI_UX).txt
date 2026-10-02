@@ -1,0 +1,64 @@
+TÀI LIỆU QUY CHUẨN GIAO DIỆN (UI GUIDELINES) - APP QUẢN LÝ SỨC KHỎE
+Yêu cầu chung: Toàn bộ mã màu, kích thước, font chữ dưới đây bắt buộc phải được khai báo thành các biến dùng chung trong 1 file (ví dụ: app_style.dart). Tuyệt đối không gõ trực tiếp (hardcode) vào từng file màn hình để đảm bảo đồng bộ 100%.
+
+1. Bảng màu chủ đạo (Color Palette)
+Ứng dụng sức khỏe cần sự sạch sẽ, tin cậy. Chúng ta sử dụng tone Xanh dương y tế làm chủ đạo.
+
+Màu chủ đạo (Primary Color): #1A56DB (Xanh dương đậm - Dùng cho nút bấm chính, Icon đang chọn, thanh Tabbar).
+
+Màu nền mờ (Primary Light): #E1EFFE (Xanh nhạt - Dùng làm nền cho các khối nổi bật hoặc viền khi được chọn).
+
+Màu nền App (Background): #F3F4F6 (Xám trắng ngà - Giúp các thẻ nội dung màu trắng nổi bật lên).
+
+Màu thẻ nội dung (Card/Surface): #FFFFFF (Trắng tinh).
+
+Màu chữ Text:
+
+Chữ chính (Tiêu đề, tên mục): #111827 (Đen nhạt, không dùng đen tuyền).
+
+Chữ phụ (Mô tả, thời gian): #6B7280 (Xám trung tính).
+
+Màu Trạng thái (Status):
+
+Lỗi/Cảnh báo đỏ: #E02424 (Dùng khi nhập sai form).
+
+Thành công: #057A55 (Xanh lá).
+
+2. Quy chuẩn Khoảng cách (Spacing & Padding)
+Sử dụng hệ thống lưới bội số của 8 (8-pt grid) để các thành phần thẳng hàng, không lộn xộn.
+
+Khoảng cách viền màn hình (Screen Padding): Lùi vào 16px ở cả 2 bên trái/phải.
+
+Khoảng cách giữa các khối lớn (Sections): 24px.
+
+Khoảng cách giữa các thành phần nhỏ (VD: Tiêu đề và Ô nhập chữ): 8px.
+
+Bo góc (Border Radius):
+
+Nút bấm (Button): Bo góc 8px.
+
+Thẻ thông tin (Card): Bo góc 12px hoặc 16px.
+
+3. Quy chuẩn Font chữ (Typography)
+Sử dụng Font Inter hoặc Roboto (Lấy từ Google Fonts).
+
+Heading 1 (Tiêu đề màn hình): Size 24px, Nét In đậm (Bold).
+
+Heading 2 (Tiêu đề các khối nhỏ): Size 18px, Nét Bán đậm (Semi-Bold).
+
+Body Text (Chữ nội dung bình thường): Size 14px, Nét thường (Regular).
+
+Caption (Chữ chú thích nhỏ): Size 12px, Nét thường (Regular).
+
+4. Thành phần dùng chung (UI Components)
+Nút bấm chính (Primary Button): Chiều cao cố định 48px, nền màu Primary #1A56DB, chữ màu Trắng In đậm. Viền bo tròn 8px.
+
+Ô nhập liệu (Text Field):
+
+Chiều cao 48px.
+
+Trạng thái bình thường: Viền xám nhạt #D1D5DB, nền trắng.
+
+Trạng thái đang gõ (Focused): Viền chuyển sang màu Primary #1A56DB.
+
+Hiệu ứng đổ bóng (Shadow): Chỉ dùng đổ bóng cực nhẹ cho các Thẻ nội dung (Card) để tạo chiều sâu, không lạm dụng đổ bóng cho nút bấm chữ.

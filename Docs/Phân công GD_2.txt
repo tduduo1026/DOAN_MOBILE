@@ -1,0 +1,17 @@
+1. Phân công của Trang (Mã UI01 - Nhánh làm việc: feature/trang-ui-home)
+Trang sẽ chịu trách nhiệm thiết kế và lập trình giao diện cho phần Đăng nhập và Màn hình chính. Cụ thể, Trang cần tạo và hoàn thiện các file sau trong thư mục lib/screens/:
+
+login_screen.dart: Trang thiết kế giao diện màn hình đăng nhập, bao gồm logo ứng dụng, ô nhập tài khoản, ô nhập mật khẩu và nút Đăng nhập.
+
+home_screen.dart: Trang lập trình màn hình Dashboard tổng quan. Dựa vào file dữ liệu mẫu mình đã cung cấp, Trang thiết kế các khối (Card) để hiển thị số calo đã nạp, lượng nước đã uống và danh sách bài tập trong ngày của người dùng.
+
+app_style.dart: Trang khởi tạo file này trong thư mục lib/constants/ để khai báo sẵn bộ mã màu và font chữ dùng chung cho toàn bộ dự án.
+
+2. Phân công của Trinh (Mã UI02 - Nhánh làm việc: feature/trinh-ui-form)
+Trinh sẽ đảm nhận việc thiết kế và lập trình toàn bộ các Form nhập liệu sức khỏe của ứng dụng. Cụ thể, Trinh cần tạo và hoàn thiện các file sau trong thư mục lib/screens/:
+
+profile_setup_screen.dart: Trinh thiết kế form nhập thông tin hồ sơ ban đầu, bao gồm các ô nhập dữ liệu (Text Field) cho chiều cao, cân nặng và mục tiêu sức khỏe (ví dụ: bulking, giảm mỡ).
+
+daily_log_screen.dart: Trinh thiết kế form ghi nhận nhật ký sinh hoạt hằng ngày để người dùng có thể nhập số ml nước vừa uống, tên món ăn và thời gian tập thể dục.
+
+Lưu ý kỹ thuật cho Trinh: Khi thiết kế các nút bấm hoặc viền form, Trinh bắt buộc phải sử dụng các biến màu sắc được định nghĩa trong file app_style.dart do Trang tạo, nhằm đảm bảo giao diện của hai người hoàn toàn đồng nhất.
