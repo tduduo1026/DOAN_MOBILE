@@ -35,50 +35,63 @@ class AppSize {
 /// Typography (Inter - Google Fonts).
 class AppText {
   static TextStyle get h1 => GoogleFonts.inter(
-      fontSize: 24, fontWeight: FontWeight.w700, color: AppColors.textPrimary);
+    fontSize: 24,
+    fontWeight: FontWeight.w700,
+    color: AppColors.textPrimary,
+  );
   static TextStyle get h2 => GoogleFonts.inter(
-      fontSize: 18, fontWeight: FontWeight.w600, color: AppColors.textPrimary);
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: AppColors.textPrimary,
+  );
   static TextStyle get body => GoogleFonts.inter(
-      fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.textPrimary);
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textPrimary,
+  );
   static TextStyle get caption => GoogleFonts.inter(
-      fontSize: 12,
-      fontWeight: FontWeight.w400,
-      color: AppColors.textSecondary);
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textSecondary,
+  );
   static TextStyle get button => GoogleFonts.inter(
-      fontSize: 14, fontWeight: FontWeight.w700, color: AppColors.onPrimary);
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: AppColors.onPrimary,
+  );
 }
 
 /// Thành phần dùng chung.
 class AppStyle {
   /// Nút chính: cao 48, nền primary, chữ trắng đậm, bo 8, không đổ bóng.
   static ButtonStyle get primaryButton => ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primary,
-        foregroundColor: AppColors.onPrimary,
-        minimumSize: const Size.fromHeight(AppSize.buttonHeight),
-        elevation: 0,
-        textStyle: AppText.button,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppRadius.button),
-        ),
-      );
+    backgroundColor: AppColors.primary,
+    foregroundColor: AppColors.onPrimary,
+    minimumSize: const Size.fromHeight(AppSize.buttonHeight),
+    elevation: 0,
+    textStyle: AppText.button,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(AppRadius.button),
+    ),
+  );
 
   /// Thẻ nội dung: nền trắng, bo 12, đổ bóng cực nhẹ.
   static BoxDecoration get card => BoxDecoration(
-        color: AppColors.surface,
-        borderRadius: BorderRadius.circular(AppRadius.card),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.textPrimary.withValues(alpha: 0.05),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      );
+    color: AppColors.surface,
+    borderRadius: BorderRadius.circular(AppRadius.card),
+    boxShadow: [
+      BoxShadow(
+        color: AppColors.textPrimary.withValues(alpha: 0.05),
+        blurRadius: 8,
+        offset: const Offset(0, 2),
+      ),
+    ],
+  );
 
   static OutlineInputBorder _border(Color color) => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppRadius.button),
-        borderSide: BorderSide(color: color),
-      );
+    borderRadius: BorderRadius.circular(AppRadius.button),
+    borderSide: BorderSide(color: color),
+  );
 
   /// Ô nhập liệu: viền xám nhạt, focus chuyển primary, lỗi màu đỏ.
   static InputDecoration inputDecoration({String? hint, String? suffix}) =>
@@ -89,7 +102,9 @@ class AppStyle {
         filled: true,
         fillColor: AppColors.surface,
         contentPadding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.screen, vertical: 0),
+          horizontal: AppSpacing.screen,
+          vertical: 0,
+        ),
         constraints: const BoxConstraints(minHeight: AppSize.fieldHeight),
         enabledBorder: _border(AppColors.border),
         focusedBorder: _border(AppColors.primary),
@@ -100,19 +115,19 @@ class AppStyle {
 
   /// Theme toàn app — dùng trong MaterialApp(theme: AppStyle.theme).
   static ThemeData get theme => ThemeData(
-        scaffoldBackgroundColor: AppColors.background,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          primary: AppColors.primary,
-          surface: AppColors.surface,
-          error: AppColors.error,
-        ),
-        appBarTheme: AppBarTheme(
-          backgroundColor: AppColors.background,
-          foregroundColor: AppColors.textPrimary,
-          elevation: 0,
-          titleTextStyle: AppText.h2,
-        ),
-        textTheme: GoogleFonts.interTextTheme(),
-      );
+    scaffoldBackgroundColor: AppColors.background,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: AppColors.primary,
+      primary: AppColors.primary,
+      surface: AppColors.surface,
+      error: AppColors.error,
+    ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.background,
+      foregroundColor: AppColors.textPrimary,
+      elevation: 0,
+      titleTextStyle: AppText.h2,
+    ),
+    fontFamily: GoogleFonts.inter().fontFamily,
+  );
 }
