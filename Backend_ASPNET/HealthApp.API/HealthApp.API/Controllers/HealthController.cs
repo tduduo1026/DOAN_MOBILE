@@ -79,5 +79,19 @@ namespace HealthApp.API.Controllers
                 burned = log.CaloriesBurned
             });
         }
+        [HttpPut("metrics")]
+        public async Task<IActionResult> UpdateDailyMetrics(UpdateDailyMetricsDTO request)
+        {
+            int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+            var log = await GetOrCreateTodayLog(userId);
+
+            log.SleepHours = request.SleepHours;
+            log.Steps = request.Steps;
+            log.WorkoutNote = request.WorkoutNote;
+            log.DietNote = request.DietNote;
+
+            await _context.SaveChangesAsync();
+            return Ok(new { message = "Cập nhật chỉ số hôm nay thành công!" });
+        }
     }
 }

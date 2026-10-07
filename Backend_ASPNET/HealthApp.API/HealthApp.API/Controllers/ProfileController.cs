@@ -9,62 +9,65 @@ namespace HealthApp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize] // Bắt buộc phải có Token JWT mới gọi được API này
+    [Authorize]
     public class ProfileController : ControllerBase
     {
         private readonly AppDbContext _context;
+        public ProfileController(AppDbContext context) => _context = context;
 
-        public ProfileController(AppDbContext context)
-        {
-            _context = context;
-        }
+        // Hàm rút gọn lấy ID từ Token
+        private int GetUserId() => int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
 
-        // Lấy thông tin hồ sơ của user đang đăng nhập
         [HttpGet]
         public async Task<IActionResult> GetProfile()
         {
-            // Trích xuất ID của user từ Token
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (userIdClaim == null) return Unauthorized();
+            var user = await _context.Users.FindAsync(GetUserId());
+            if (user == null) return NotFound();
 
-            int userId = int.Parse(userIdClaim);
-
-            var user = await _context.Users.FindAsync(userId);
-            if (user == null) return NotFound("Không tìm thấy người dùng.");
+            var todayLog = await _context.DailyLogs
+                .FirstOrDefaultAsync(l => l.UserId == user.Id && l.Date.Date == DateTime.Today);
 
             var profile = new UserProfileDTO
             {
                 FullName = user.FullName,
+                Age = user.Age,
+                Gender = user.Gender,
                 Height = user.Height,
                 Weight = user.Weight,
                 TargetWater = user.TargetWater,
-                TargetCalories = user.TargetCalories
+                TargetCalories = user.TargetCalories,
+                Goal = user.Goal,
+                TodayLog = todayLog == null ? null : new DailyLogDTO
+                {
+                    Date = todayLog.Date,
+                    WaterIntake = todayLog.WaterIntake,
+                    CaloriesConsumed = todayLog.CaloriesConsumed,
+                    CaloriesBurned = todayLog.CaloriesBurned,
+                    SleepHours = todayLog.SleepHours,
+                    Steps = todayLog.Steps,
+                    WorkoutNote = todayLog.WorkoutNote,
+                    DietNote = todayLog.DietNote
+                }
             };
-
             return Ok(profile);
         }
 
-        // Cập nhật thông tin (Chiều cao, Cân nặng, Mục tiêu)
         [HttpPut]
         public async Task<IActionResult> UpdateProfile(UserProfileDTO request)
         {
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (userIdClaim == null) return Unauthorized();
+            var user = await _context.Users.FindAsync(GetUserId());
+            if (user == null) return NotFound();
 
-            int userId = int.Parse(userIdClaim);
-
-            var user = await _context.Users.FindAsync(userId);
-            if (user == null) return NotFound("Không tìm thấy người dùng.");
-
-            // Cập nhật dữ liệu mới vào DB
             user.FullName = request.FullName;
+            user.Age = request.Age;
+            user.Gender = request.Gender;
             user.Height = request.Height;
             user.Weight = request.Weight;
             user.TargetWater = request.TargetWater;
             user.TargetCalories = request.TargetCalories;
+            user.Goal = request.Goal;
 
             await _context.SaveChangesAsync();
-
             return Ok(new { message = "Cập nhật hồ sơ thành công!" });
         }
     }
