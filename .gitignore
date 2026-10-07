@@ -1,0 +1,6 @@
+# Bo qua thu muc tam cua Visual Studio
+.vs/
+
+# Bo qua cac thu muc build cua ASP.NET
+[Bb]in/
+[Oo]bj/
