@@ -5,6 +5,9 @@ import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/water_calorie_form.dart';
+import 'screens/profile_setup_screen.dart';
+import 'screens/daily_log_screen.dart';
+import 'screens/stats_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +28,10 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const RegisterScreen(),
         '/home': (context) => const HomeScreen(),
         '/water_calorie': (context) => const WaterCalorieForm(),
+        '/daily-log': (context) => const DailyLogScreen(),
+        '/stats': (context) => const StatsScreen(),
+        '/profile': (context) => const ProfileSetupScreen(),
+     
       },
     );
   }
