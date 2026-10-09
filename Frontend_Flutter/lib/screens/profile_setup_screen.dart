@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constants/app_style.dart';
 import 'common_widgets.dart';
+import '../widgets/health_bottom_navigation.dart';
 
 class ProfileSetupScreen extends StatefulWidget {
   const ProfileSetupScreen({super.key});
@@ -73,6 +74,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
     final bmi = _bmi;
 
     return Scaffold(
+      bottomNavigationBar: const HealthBottomNavigation(selectedIndex: 3),
       backgroundColor: AppColors.background,
       appBar: AppBar(
         title: Text('Hồ sơ cá nhân', style: AppText.h1),

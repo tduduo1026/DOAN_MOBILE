@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constants/app_style.dart';
 import 'common_widgets.dart';
+import '../widgets/health_bottom_navigation.dart';
 
 class StatsScreen extends StatelessWidget {
   const StatsScreen({super.key});
@@ -43,6 +44,7 @@ class StatsScreen extends StatelessWidget {
         _calories.reduce((a, b) => a + b) / _calories.length;
 
     return Scaffold(
+      bottomNavigationBar: const HealthBottomNavigation(selectedIndex: 2),
       backgroundColor: AppColors.background,
       appBar: AppBar(
         title: Text(

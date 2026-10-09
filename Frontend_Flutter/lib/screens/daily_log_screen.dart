@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constants/app_style.dart';
 import 'common_widgets.dart';
+import '../widgets/health_bottom_navigation.dart';
 
 class DailyLogScreen extends StatefulWidget {
   const DailyLogScreen({super.key});
@@ -81,6 +82,7 @@ class _DailyLogScreenState extends State<DailyLogScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const HealthBottomNavigation(selectedIndex: 1),
       backgroundColor: AppColors.background,
       appBar: AppBar(
         title: Text('Ghi nhận sinh hoạt', style: AppText.h1),

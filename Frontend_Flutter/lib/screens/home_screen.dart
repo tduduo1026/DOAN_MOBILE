@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/app_style.dart';
+import '../widgets/health_bottom_navigation.dart';
 import 'water_calorie_form.dart';
 
 /// JSON mẫu của nhóm (data_cddd.js) — bắt buộc giữ nguyên cấu trúc key.
@@ -118,6 +119,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      // Thanh điều hướng dùng chung với các màn hình của người 3.
+      bottomNavigationBar: const HealthBottomNavigation(selectedIndex: 0),
     );
   }
 }

@@ -30,6 +30,9 @@ class MyApp extends StatelessWidget {
         '/daily_log': (context) => const DailyLogScreen(),
         // '/stats': (context) => const StatsScreen(),
         '/home': (context) => const HomeScreen(), // Dòng này phải nằm TRƯỚC dấu ngoặc nhọn đóng nhé
+        '/profile': (context) => const ProfileSetupScreen(), // Chú ý: '/profile' chứ không phải '/profile_setup'
+        '/daily-log': (context) => const DailyLogScreen(),   // Chú ý: dùng dấu gạch ngang '-'
+        '/stats': (context) => const StatsScreen(),
       }, // Dấu ngoặc nhọn đóng của routes phải nằm ở cuối cùng
     );
   }
